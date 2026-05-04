@@ -213,7 +213,7 @@ input, textarea, select { font: inherit; }
 #hero {
   background: var(--c-white);
   padding-top: 4.5rem; /* mobile: clear compact nav */
-  min-height: 100svh;
+  padding-bottom: var(--space-xl);
 }
 @media (min-width: 768px) {
   #hero { padding-top: 13rem; } /* desktop: clear tall nav (136px logo + 2rem×2 padding) */
@@ -370,15 +370,23 @@ input, textarea, select { font: inherit; }
 /* ─────────────────────────────────────────────────────────────
    BIM GALLERY STRIP — 4 images, full width, between HWW & Projects
 ────────────────────────────────────────────────────────────── */
-#bim-gallery { line-height: 0; /* remove inline gaps */ }
-
-.gallery-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  height: 240px;
+#bim-gallery {
+  padding: var(--space-xl) var(--space-md);
 }
 
-.gallery-item { overflow: hidden; }
+.gallery-strip {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+.gallery-item {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+}
 .gallery-item img {
   width: 100%;
   height: 100%;
@@ -713,8 +721,6 @@ footer {
   /* Hero: let content dictate height, no forced viewport fill */
   #hero { min-height: unset; }
 
-  /* Gallery: 2 cols on mobile */
-  .gallery-strip { grid-template-columns: repeat(2, 1fr); height: 280px; }
 
   /* Services: hide image, text full-width */
   .service-row { grid-template-columns: 1fr; }
